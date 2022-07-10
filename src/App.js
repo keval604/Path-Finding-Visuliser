@@ -3,8 +3,8 @@ import Grid from "./Grid";
 import Button from "./Button";
 // import VisContext from "./Context/vis-context";
 
-const rows=20;
-  const cols=20;
+const rows=15;
+  const cols=15;
 
   let visArray = (new Array(rows)).fill().map(function(){ return new Array(cols).fill(0);});
   let disArray=[];
@@ -17,7 +17,7 @@ const rows=20;
 
 const initialCor={
   start:{x:2,y:2},
-  end:{x:15,y:13}
+  end:{x:10,y:13}
 }
 
 
@@ -37,6 +37,7 @@ const App=()=>{
 
   return(
     <>
+      <h3>Path-Finding stimulation</h3>
       <VisitContext.Provider
         value={{
           visited:vis,
@@ -46,7 +47,7 @@ const App=()=>{
       >
           <Grid noRows={rows} noCols={cols}/>
       </VisitContext.Provider>
-
+        <h3>Click on any cell to block that cell(cell will not considered in path finding).</h3>
       <Button cor={cor} noRows={rows} noCols={cols} visited={vis} setVisit={visitHandler}/>
     </>
   )
