@@ -23,7 +23,10 @@ const Cols=(props)=>{
         <>
             <td     
                 className={`col ${row}_${col} ${isTerminal}`} 
-                onClick={()=>ctx.setVisited(row,col,-1)}
+                onMouseDown={()=>ctx.mouseHandler(true)}
+                onMouseUp={()=>ctx.mouseHandler(false)}
+                onMouseOver={()=>ctx.down?ctx.setVisited(row,col,-1):ctx.down}
+                onClick={(()=>ctx.setVisited(row,col,-1))}
               
                 style={{
                     backgroundColor: color,

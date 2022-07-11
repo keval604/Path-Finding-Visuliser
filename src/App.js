@@ -26,6 +26,7 @@ const VisitContext=React.createContext();
 const App=()=>{ 
 
   const [vis,setVis]=useState(visArray);
+  const [down,setDown]=useState(false);
  
   const [cor,setCor]=useState(initialCor);
   
@@ -35,6 +36,10 @@ const App=()=>{
     setVis(newArray);
   }
 
+  const mouseHandler=(curr)=>{
+    setDown(curr);
+  }
+
   return(
     <>
       <h3>Path-Finding stimulation</h3>
@@ -42,7 +47,9 @@ const App=()=>{
         value={{
           visited:vis,
           setVisited:visitHandler,
-          cor:cor
+          cor:cor,
+          mouseHandler:mouseHandler,
+          down:down
         }}
       >
           <Grid noRows={rows} noCols={cols}/>
