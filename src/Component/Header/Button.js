@@ -11,24 +11,30 @@ const Button=(props)=>{
     const visitCtx=useContext(VisitContext);
     const gridCtx=useContext(GridInfoContext);
 
-    let algorithm=props.selectedAlgo=="none"?'':props.selectedAlgo;
+    let algorithm=props.selectedAlgo === "none"?'':props.selectedAlgo;
     let speed=props.speed;
+    let cor=gridCtx.cor,noRows=gridCtx.noRows.rows,noCols=gridCtx.noCols.cols;
+
+    function clearVisited(){
+        for(let i=0;i<noRows;i++){
+            for(let j=0;j<noCols;j++)
+                if(visitCtx.visited[i][j]< -2)
+                    visitCtx.setVisited(i,j,0);
+        }
+        // console.log("cleared");
+        visitCtx.setVisited(cor.start.x,cor.start.y,-1);
+        visitCtx.setVisited(cor.end.x,cor.end.y,-1);
+    }
+
+
     function execute(){
-        // let func;
-
-        // console.log("kya baat hai");
-        // if(algorithm==='dijkstra') func=dijkstra();
-        //     // else if(algorithm==='BFS') func=useBfs();
-        //     // else if(algorithm==='dfs') func=useDfs();
-        //     // else if(algorithm==='A*') func=useAStar();
-
+        clearVisited();
         switch(algorithm){
             case 'none':
                 alert("algorithm select karle pahle");
                 break;
             case 'dijkstra':
                 dijkstra(visitCtx,gridCtx,speed);
-                // func=dijkstra;
                 break;
             case 'BFS':
                 bfs(visitCtx,gridCtx,speed);
@@ -42,9 +48,6 @@ const Button=(props)=>{
             default:
                 break;
         }
-        // console.log(gridCtx);
-        // func(visitCtx.visited,gridCtx)
-        // return func
     }
     
     return (

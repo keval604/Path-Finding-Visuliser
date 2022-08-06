@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-// import VisContext from './Context/vis-context';
 import { VisitContext } from '../../App';
 import './Cell.css';
 
@@ -25,26 +24,25 @@ const Cell=(props)=>{
     else if(ctx.visited[row][col]===-2) color="#1f0914";  //block
     else if(ctx.visited[row][col]===-1) color="selmon"; //end point
     else if(ctx.visited[row][col]===-4) color="green";  //path
-    else if(ctx.visited[row][col]>1) color=colorArray[ctx.visited[row][col]];
+    else if(ctx.weight[row][col]>1) color=colorArray[ctx.weight[row][col]-1];
 
     return (
         <>
             <td     
-                className={`col ${row}_${col} ${isTerminal} `} 
+                className={`col ${row}_${col} ${isTerminal} cell`} 
                 onMouseDown={()=>ctx.mouseHandler(true)}
                 onMouseUp={()=>ctx.mouseHandler(false)}
                 onMouseOver={()=>ctx.down?ctx.setVisited(row,col,-2):ctx.down}
                 onClick={(()=>ctx.setVisited(row,col,-2))}
                 
-              
                 style={{
                     backgroundColor: color,
                 }}
                 
             >
-            <div  className={`${vis}`}></div></td>
+            <div className={`${vis}`} ></div>
+            </td>
 
-                
         </>
     )
 }
