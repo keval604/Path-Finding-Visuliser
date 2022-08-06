@@ -13,7 +13,7 @@ const Button=(props)=>{
 
     let algorithm=props.selectedAlgo=="none"?'':props.selectedAlgo;
     function execute(){
-        let func;
+        // let func;
 
         // console.log("kya baat hai");
         // if(algorithm==='dijkstra') func=dijkstra();
@@ -37,6 +37,8 @@ const Button=(props)=>{
                 break;
             case 'A*':
                 astar(visitCtx,gridCtx);
+                break;
+            default:
                 break;
         }
         // console.log(gridCtx);
