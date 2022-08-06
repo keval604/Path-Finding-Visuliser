@@ -8,7 +8,8 @@ const Cell=(props)=>{
     const ctx=useContext(VisitContext);
 
     let isTerminal="";
-    let row=props.rowNo,col=props.colNo;
+    let row = props.rowNo, col = props.colNo;
+
     if((ctx.cor.start.x===row && ctx.cor.start.y===col) || 
         (ctx.cor.end.x===row && ctx.cor.end.y===col )){
         isTerminal="terminal"
@@ -25,8 +26,6 @@ const Cell=(props)=>{
     else if(ctx.visited[row][col]===-1) color="selmon"; //end point
     else if(ctx.visited[row][col]===-4) color="green";  //path
     else if(ctx.visited[row][col]>1) color=colorArray[ctx.visited[row][col]];
-    
-    
 
     return (
         <>

@@ -53,8 +53,8 @@ const App=()=>{
         }}
       >
         <GridInfoContext.Provider value={{cor:cor, noRows:{rows},noCols:{cols}}}>
-            <Header></Header>
-            <Grid noRows={rows} noCols={cols}/>
+          <Header />
+          <Grid noRows={rows} noCols={cols}/>
         </GridInfoContext.Provider>
       </VisitContext.Provider>
       

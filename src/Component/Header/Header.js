@@ -1,4 +1,5 @@
 import './Header.css';
+// import '../../bootstrap5/css/bootstrap.min.css';
 import AlgoOption from './AlgoOption';
 import Button from './Button';
 import { useState } from 'react';
@@ -20,14 +21,15 @@ const Header=()=>{
     return(
         <div class="header">
             <div class="heading">Visualizer</div>
-            <div>
+
+            <div class="links">
                 <AlgoOption algo={selectedAlgo} algoHandler={AlgorithmHander}></AlgoOption>
                 <SpeedController speed={selectedSpeed} speedHandler={SpeedHander}></SpeedController>
                 <Button selectedAlgo={selectedAlgo} speed={selectedSpeed}></Button>
                 <RandomGrid></RandomGrid>
                 <ClearGrid></ClearGrid>
             </div>
-        </div>
+            </div>
     );
 }
 
