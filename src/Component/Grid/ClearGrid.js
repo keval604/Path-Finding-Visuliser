@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { GridInfoContext, VisitContext } from "../../App";
 
+let generateClearGrid;
+
 const ClearGrid=()=>{
     const visitCtx=useContext(VisitContext);
     const gridCtx=useContext(GridInfoContext);
@@ -22,8 +24,8 @@ const ClearGrid=()=>{
         }
     }
     // console.log(visitCtx.visited);
-
-    function generateClearGrid(){
+    
+    generateClearGrid = () => {
         generate(visitCtx);
     }
 
@@ -31,5 +33,5 @@ const ClearGrid=()=>{
         <button class="button" onClick={generateClearGrid}>Clear Grid</button>
     );
 }
-
+export { generateClearGrid };
 export default ClearGrid;

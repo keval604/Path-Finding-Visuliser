@@ -29,7 +29,7 @@ const Cell=(props)=>{
     return (
         <>
             <td     
-                className={`col ${row}_${col} ${isTerminal} `} 
+                className={`col ${row}_${col} ${isTerminal} cell`} 
                 onMouseDown={()=>ctx.mouseHandler(true)}
                 onMouseUp={()=>ctx.mouseHandler(false)}
                 onMouseOver={()=>ctx.down?ctx.setVisited(row,col,-2):ctx.down}
@@ -40,7 +40,10 @@ const Cell=(props)=>{
                 }}
                 
             >
-            <div className={`${vis}`}></div></td>
+
+            <div className={`${vis}`} ></div>
+            </td>
+
         </>
     )
 }

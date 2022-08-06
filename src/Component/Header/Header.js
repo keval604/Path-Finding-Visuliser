@@ -1,5 +1,5 @@
 import './Header.css';
-// import '../../bootstrap5/css/bootstrap.min.css';
+import '../../bootstrap5/css/bootstrap.min.css';
 import AlgoOption from './AlgoOption';
 import Button from './Button';
 import { useState } from 'react';
@@ -19,17 +19,37 @@ const Header=()=>{
     }
 
     return(
-        <div class="header">
-            <div class="heading">Visualizer</div>
+        <div className='header'>
+            <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="nav-brand"><h1> Visualizer </h1></div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><div class="nav-link"><AlgoOption algo={selectedAlgo} algoHandler={AlgorithmHander}></AlgoOption></div></li>
+                    <li class="nav-item"><div class="nav-link"><SpeedController speed={selectedSpeed} speedHandler={SpeedHander}></SpeedController></div></li>
+                    <li class="nav-item"><div class="nav-link"><Button selectedAlgo={selectedAlgo} speed={selectedSpeed}></Button></div></li>
+                    <li class="nav-item"><div class="nav-link"><RandomGrid></RandomGrid></div></li>
+                    <li class="nav-item"><div class="nav-link"><ClearGrid></ClearGrid></div></li>
+                </ul>
+                </div>
+            </div>
+            </nav>
 
-            <div class="links">
-                <AlgoOption algo={selectedAlgo} algoHandler={AlgorithmHander}></AlgoOption>
-                <SpeedController speed={selectedSpeed} speedHandler={SpeedHander}></SpeedController>
-                <Button selectedAlgo={selectedAlgo} speed={selectedSpeed}></Button>
-                <RandomGrid></RandomGrid>
-                <ClearGrid></ClearGrid>
-            </div>
-            </div>
+        </div>
+        /* <div class="heading">Visualizer</div> */
+
+        /* <div class="links">
+            <div class="link"></div>
+            <div class="link"></div>
+            <div class="link"></div>
+            <div class="link"><RandomGrid></RandomGrid></div>
+            <div class="link"><ClearGrid></ClearGrid></div>
+        </div> */
     );
 }
 
