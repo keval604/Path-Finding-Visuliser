@@ -12,6 +12,7 @@ const Button=(props)=>{
     const gridCtx=useContext(GridInfoContext);
 
     let algorithm=props.selectedAlgo=="none"?'':props.selectedAlgo;
+    let speed=props.speed;
     function execute(){
         let func;
 
@@ -26,17 +27,17 @@ const Button=(props)=>{
                 alert("algorithm select karle pahle");
                 break;
             case 'dijkstra':
-                dijkstra(visitCtx,gridCtx);
+                dijkstra(visitCtx,gridCtx,speed);
                 // func=dijkstra;
                 break;
             case 'BFS':
-                bfs(visitCtx,gridCtx);
+                bfs(visitCtx,gridCtx,speed);
                 break;
             case 'DFS':
-                dfs(visitCtx,gridCtx);
+                dfs(visitCtx,gridCtx,speed);
                 break;
             case 'A*':
-                astar(visitCtx,gridCtx);
+                astar(visitCtx,gridCtx,speed);
                 break;
         }
         // console.log(gridCtx);

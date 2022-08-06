@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GridInfoContext, VisitContext } from "../../App";
 
-const RandomGrid=()=>{
+const ClearGrid=()=>{
     const visitCtx=useContext(VisitContext);
     const gridCtx=useContext(GridInfoContext);
 
@@ -12,23 +12,21 @@ const RandomGrid=()=>{
     function generate(visitCtx){
         for(let i=0;i<noRows;i++){
             for(let j=0;j<noCols;j++){
-                let x=Math.random();
                 if((i==cor.start.x && j==cor.start.y) || (i==cor.end.x
                     && j==cor.end.y)) visitCtx.setVisited(i,j,-1);
-                else if(x>0.7) visitCtx.setVisited(i,j,-2);
-                else if(x>0.3) visitCtx.setVisited(i,j,Math.floor(Math.random()*10)); //weighted
+                else visitCtx.setVisited(i,j,1);
             }
         }
     }
     // console.log(visitCtx.visited);
 
-    function generateRandomGrid(){
+    function generateClearGrid(){
         generate(visitCtx);
     }
 
     return (
-        <button class="button" onClick={generateRandomGrid}>Generate RandomGrid</button>
+        <button class="button" onClick={generateClearGrid}>Clear Grid</button>
     );
 }
 
-export default RandomGrid;
+export default ClearGrid;

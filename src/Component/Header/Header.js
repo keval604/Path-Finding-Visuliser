@@ -3,12 +3,18 @@ import AlgoOption from './AlgoOption';
 import Button from './Button';
 import { useState } from 'react';
 import RandomGrid from '../Grid/RandomGrid';
+import ClearGrid from '../Grid/ClearGrid';
+import SpeedController from './SpeedController';
 
 const Header=()=>{
     const [selectedAlgo,setSelectedAlgo]=useState("none");
+    const [selectedSpeed,setSelectedSpeed]=useState(100);
 
     const AlgorithmHander=(algorithm)=>{
         setSelectedAlgo(algorithm);
+    }
+    const SpeedHander=(speed)=>{
+        setSelectedSpeed(speed);
     }
 
     return(
@@ -16,8 +22,10 @@ const Header=()=>{
             <div class="heading">Visualizer</div>
             <div>
                 <AlgoOption algo={selectedAlgo} algoHandler={AlgorithmHander}></AlgoOption>
-                <Button selectedAlgo={selectedAlgo}></Button>
+                <SpeedController speed={selectedSpeed} speedHandler={SpeedHander}></SpeedController>
+                <Button selectedAlgo={selectedAlgo} speed={selectedSpeed}></Button>
                 <RandomGrid></RandomGrid>
+                <ClearGrid></ClearGrid>
             </div>
         </div>
     );

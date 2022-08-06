@@ -15,6 +15,7 @@ const Cell=(props)=>{
     }
 
     let color='';
+    let colorArray=["#c6f7f1","#b6fcf3","#9bfaed","#81fcec","#54ebd7","#48dbc8","#2eab9a","#09695d"];
     let vis="";
     if(ctx.visited[row][col]===-3){ //visited 
         color="yellow";
@@ -23,7 +24,7 @@ const Cell=(props)=>{
     else if(ctx.visited[row][col]===-2) color="#1f0914";  //block
     else if(ctx.visited[row][col]===-1) color="selmon"; //end point
     else if(ctx.visited[row][col]===-4) color="green";  //path
-    else if(ctx.visited[row][col]>1) color="aqua";
+    else if(ctx.visited[row][col]>1) color=colorArray[ctx.visited[row][col]];
     
     
 
