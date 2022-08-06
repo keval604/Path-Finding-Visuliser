@@ -5,7 +5,6 @@ const SpeedController=(props)=>{
     const selectRef=useRef();
 
     const changeSpeed=()=>{
-        console.log(selectRef.current);
         props.speedHandler(selectRef.current.value);
     }
     return (

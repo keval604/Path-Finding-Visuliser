@@ -84,9 +84,9 @@ export const dijkstra=(visitCtx,gridCtx,speed)=>{
                 let newCorr={x:ele[0]+u.x,y:u.y+ele[1]};
                             
                 if(isInRange(newCorr) && visitCtx.visited[newCorr.x][newCorr.y]>=-1 && 
-                    (dis[u.x][u.y]+visitCtx.visited[newCorr.x][newCorr.y])<dis[newCorr.x][newCorr.y]){
+                    (dis[u.x][u.y]+visitCtx.weight[newCorr.x][newCorr.y])<dis[newCorr.x][newCorr.y]){
                     parent[newCorr.x][newCorr.y]=[u.x,u.y];
-                    dis[newCorr.x][newCorr.y]=dis[u.x][u.y]+visitCtx.visited[newCorr.x][newCorr.y];
+                    dis[newCorr.x][newCorr.y]=dis[u.x][u.y]+visitCtx.weight[newCorr.x][newCorr.y];
 
         
                     if(newCorr.x===cor.end.x && newCorr.y===cor.end.y){

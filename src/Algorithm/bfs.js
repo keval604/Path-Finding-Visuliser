@@ -20,10 +20,10 @@ export const bfs=(visitCtx,gridCtx,speed)=>{
 
     const printPath=()=>{
         let curr=parent[cor.end.x][cor.end.y];
-        console.log(curr);  
+        // console.log(curr);  
 
         var timer=setInterval(()=>{
-            console.log(curr,parent[curr[0]][curr[1]]);
+            // console.log(curr,parent[curr[0]][curr[1]]);
             if(curr[0]==cor.start.x && curr[1]==cor.start.y){ 
                 visitCtx.setVisited(curr[0],curr[1],-1);
                 clearInterval(timer);
@@ -42,7 +42,7 @@ export const bfs=(visitCtx,gridCtx,speed)=>{
 
                 for(let j=0;j<4;j++){
                     let ni=curr[0]+dir[j][0],nj=curr[1]+dir[j][1];
-                    console.log(ni,nj);
+                    // console.log(ni,nj);
                     if(isInRange({ni,nj})){
                         if(visitCtx.visited[ni][nj]==-1 && ni!=cor.start.x && nj!=cor.start.y){
                             parent[ni][nj]=[curr[0],curr[1]];
@@ -79,7 +79,7 @@ export const bfs=(visitCtx,gridCtx,speed)=>{
                 }
 
             }
-            console.log(queue.length);
+            // console.log(queue.length);
         }
     }
 
