@@ -42,7 +42,7 @@ const Cell=(props)=>{
                 }}
                 
             >
-            <div className={`${vis}`}></div></td>
+            <div  className={`${vis}`}></div></td>
 
                 
         </>
