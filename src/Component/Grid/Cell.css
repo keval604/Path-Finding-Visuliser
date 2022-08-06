@@ -1,0 +1,29 @@
+.col{
+    width:2vw;
+    height:3vh;
+    /* border:1px black solid; */
+}
+
+table, tr, td {
+    border:1px solid rgb(150,150,150,0.5);
+    border-collapse: collapse;
+  }
+
+.terminal{
+    background-color: salmon;
+    
+    /* border:1px solid black; */
+
+}
+
+@keyframes example {
+    from {background-color: red; width:100%; height:100%;}
+    to {background-color: yellow; width:100%; height:100%;}
+    
+  }
+
+.anime{
+  margin:auto;
+    animation-name: example;
+    animation-duration: 0.5s;
+}

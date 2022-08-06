@@ -1,0 +1,18 @@
+.header{
+    width:100%;
+    height:10vh;
+    display:flex;
+    background-color: #1c142b;
+    color:white;
+    font-size: 18px;
+}
+
+.button{
+    background-color: #3f8ae0;
+    padding:10px 50px;
+    font-size: 18px;
+    margin:auto 20vw;
+    border-radius: 5px;
+    color:white;
+}
+

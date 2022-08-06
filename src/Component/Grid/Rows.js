@@ -1,4 +1,4 @@
-import Cols from "./Cols";
+import Cell from "./Cell";
 
 const Rows=(props)=>{
     const arr = [...Array(props.noCols).keys()].map(x => x++);
@@ -7,7 +7,7 @@ const Rows=(props)=>{
             <tr className={`row ${props.rowNo}`}>
                 {
                     arr.map((ele, index) => ( 
-                        <Cols key={index} colNo={ele} rowNo={props.rowNo}></Cols>
+                        <Cell key={index} colNo={ele} rowNo={props.rowNo}></Cell>
                     )) 
                 }
             </tr>
