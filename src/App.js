@@ -33,6 +33,7 @@ const App=()=>{
   
   const visitHandler=(row,col,value)=>{
     let newArray=[...vis];
+    // console.log(vis);
     newArray[row][col]=value;
     setVis(newArray);
   }
