@@ -11,7 +11,7 @@ const Button=(props)=>{
     const visitCtx=useContext(VisitContext);
     const gridCtx=useContext(GridInfoContext);
 
-    let algorithm=props.selectedAlgo=="none"?'':props.selectedAlgo;
+    let algorithm=props.selectedAlgo === "none"?'':props.selectedAlgo;
     let speed=props.speed;
     function execute(){
         // let func;

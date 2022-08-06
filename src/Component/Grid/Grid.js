@@ -7,17 +7,19 @@ const Grid=(props)=>{
     const arr = [...Array(props.noRows).keys()].map(x => x++);
     return (
         <>
-            <table className="table">
-                {
-                    arr.map((ele, index) => ( 
-                        <Rows 
-                            key={index} 
-                            rowNo={ele} 
-                            noCols={props.noCols} 
-                        ></Rows>
-                    )) 
-                }
-            </table>
+            <div className="m-5">
+                <table className="table">
+                    {
+                        arr.map((ele, index) => (
+                            <Rows
+                                key={index}
+                                rowNo={ele}
+                                noCols={props.noCols}
+                            ></Rows>
+                        ))
+                    }
+                </table>
+            </div>
         </>
     )
 }

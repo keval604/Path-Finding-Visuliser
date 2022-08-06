@@ -1,5 +1,6 @@
 .slidecontainer {
-    width: 10%;
+    /* background-color: transparent; */
+    padding: 10px 40px;
   }
   
   .slider {
