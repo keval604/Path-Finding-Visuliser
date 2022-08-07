@@ -29,7 +29,7 @@ const RandomGrid = () => {
     }
 
     return (
-        <button class="button" onClick={generateRandomGrid}>Generate RandomGrid</button>
+        <button class="btn btn-lg btn-primary px-4 py-3" onClick={generateRandomGrid}>Generate RandomGrid</button>
     );
 }
 

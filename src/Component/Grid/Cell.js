@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import '../../bootstrap5/css/bootstrap.min.css';
 // import VisContext from './Context/vis-context';
 import { VisitContext } from '../../App';
 import './Cell.css';
@@ -29,23 +30,19 @@ const Cell=(props)=>{
 
     return (
         <>
-            <td     
-                className={`col ${row}_${col} ${isTerminal} cell`} 
+            <div      
+                className={`col ${row}_${col} ${isTerminal}`} 
                 onMouseDown={()=>ctx.mouseHandler(true)}
                 onMouseUp={()=>ctx.mouseHandler(false)}
                 onMouseOver={()=>ctx.down?ctx.setVisited(row,col,-2):ctx.down}
-                onClick={(()=>ctx.setVisited(row,col,-2))}
+                onClick={(() => ctx.setVisited(row, col, -2))}
                 
-              
                 style={{
                     backgroundColor: color,
                 }}
-                
             >
-                <div className={`${vis}`} ></div>
-            </td>
-
-                
+                <div className={`${vis} cell`} > </div>
+            </div>
         </>
     )
 }

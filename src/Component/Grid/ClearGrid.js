@@ -27,7 +27,7 @@ const ClearGrid=()=>{
     }
 
     return (
-        <button class="button" onClick={generateClearGrid}>Clear Grid</button>
+        <button class="btn btn-lg btn-primary px-4" onClick={generateClearGrid}>Clear Grid</button>
     );
 }
 export { generateClearGrid };

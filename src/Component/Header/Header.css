@@ -24,11 +24,7 @@
     display: inline;
     margin: 10px 15px;
 }
-.button{
-    background-color: #3f8ae0;
-    padding:10px 50px;
-    font-size: 24px;
-    border-radius: 5px;
-    color:white;
+.btn{
+    
 }
 
