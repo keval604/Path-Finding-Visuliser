@@ -4,13 +4,13 @@ const Rows=(props)=>{
     const arr = [...Array(props.noCols).keys()].map(x => x++);
     return (
         <>
-            <tr className={`row ${props.rowNo}`}>
+            <div className={`row ${props.rowNo} g-0 `}>
                 {
                     arr.map((ele, index) => ( 
                         <Cell key={index} colNo={ele} rowNo={props.rowNo}></Cell>
                     )) 
                 }
-            </tr>
+            </div>
         </>
     )
 }
