@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { VisitContext,GridInfoContext } from "../../App";
-
+import '../../bootstrap5/css/bootstrap.min.css';
 import { dijkstra } from "../../Algorithm/dijkstra";
 
 import {bfs} from "../../Algorithm/bfs";
@@ -51,8 +51,8 @@ const Button=(props)=>{
     }
     
     return (
-        <button class="button" onClick={execute}>Visualize {algorithm}</button>
+        <button class="btn btn-lg btn-primary px-4" onClick={execute}>Visualize {algorithm}</button>
     );
 }
 
-export default Button;
+export default Button;  
