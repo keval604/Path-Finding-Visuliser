@@ -35,7 +35,12 @@ const Cell=(props)=>{
                 onMouseDown={()=>ctx.mouseHandler(true)}
                 onMouseUp={()=>ctx.mouseHandler(false)}
                 onMouseOver={()=>ctx.down?ctx.setVisited(row,col,-2):ctx.down}
-                onClick={(() => ctx.setVisited(row, col, -2))}
+                onClick={(() =>{ 
+                    if(ctx.visited[row][col]==0)
+                    ctx.setVisited(row, col, -2);
+                    else 
+                    ctx.setVisited(row,col,0);
+                })}
                 
                 style={{
                     backgroundColor: color,

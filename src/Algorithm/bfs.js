@@ -46,14 +46,13 @@ export const bfs=(visitCtx,gridCtx,speed)=>{
                     if(isInRange({ni,nj})){
                         if(visitCtx.visited[ni][nj]==-1 && ni!=cor.start.x && nj!=cor.start.y){
                             parent[ni][nj]=[curr[0],curr[1]];
-                            
+
                             reject(true);
                             return;
                         }else if(visitCtx.visited[ni][nj]>=0){
                             parent[ni][nj]=[curr[0],curr[1]];
                             queue.push([ni,nj]);
-                            visitCtx.setVisited(ni,nj,-3);
-                            
+                            visitCtx.setVisited(ni,nj,-3);                            
                         }
                     }
                 }

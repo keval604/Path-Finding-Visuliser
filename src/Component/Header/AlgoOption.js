@@ -10,10 +10,10 @@ const AlgoOption = (props) => {
     return (
         <select class= "form-select form-select-lg" ref={selectRef} onChange={changeAlgo}>
             <option value="none">Algorithm</option>
-            <option value="dijkstra" selected={props.algo==="dijkstra"?"selected":''}>Dijkstra</option>
+            <option value="dijkstra">Dijkstra</option>
             <option value="BFS">BFS</option>
             <option value="DFS">DFS</option>
-            <option value="A*">A* </option>
+            <option value="A*">A*</option>
         </select>
     );
 }
