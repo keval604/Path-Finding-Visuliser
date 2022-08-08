@@ -24,46 +24,36 @@ export const dfs=(visitCtx,gridCtx,speed)=>{
         },speed);
     }
 
-    function relax(curr){
+    function mark(curr){
         return new Promise((resolve,reject)=>{
             setTimeout(()=>{
-                // const curr = queue.shift();
-                const dir=[[-1,0],[1,0],[0,-1],[0,1]];
-
-                for(let j=0; j<4; j++){
-                    let ni=curr[0]+dir[j][0],nj=curr[1]+dir[j][1];
-                    // console.log(ni,nj);
-                    if(isInRange({ni,nj})){
-                        if(visitCtx.visited[ni][nj]==-1 && ni!=cor.start.x && nj!=cor.start.y){
-                            parent[ni][nj]=[curr[0],curr[1]];
-                            reject(true);
-                            return;
-                        }else if(visitCtx.visited[ni][nj]>=0){
-                            parent[ni][nj]=[curr[0],curr[1]];
-                            visitCtx.setVisited(ni,nj,-3);                            
-                            // relax([ni,nj]);
-                        }
-                    }
-                }
+                visitCtx.setVisited(curr[0],curr[1],-3);                            
                 resolve(true);
             },speed);
         });
     }
     const executedfs=async()=>{
-        // let queue=[];
-        // queue.unshift(0,[cor.start.x,cor.start.y]);
-        // console.log(queue);
-        let i = cor.start.x, j = cor.start.y;
-        while(true){
-            try{
-                const y = await relax([i,j]);
-            }
-            catch(err){
-                printPath();
-                return;
+        let stack=[];
+        stack.unshift([cor.start.x,cor.start.y]);
+        while (stack.length) {
+            const curr = stack.shift();
+            const dir=[[-1,0],[1,0],[0,-1],[0,1]];
+            for(let j=0; j<4; j++){
+                let ni=curr[0]+dir[j][0],nj=curr[1]+dir[j][1];
+                
+                if(isInRange({ni,nj})){
+                    if(visitCtx.visited[ni][nj] == -1 && ni != cor.start.x && nj != cor.start.y){
+                        parent[ni][nj]=[curr[0],curr[1]];
+                        printPath();
+                        return;
+                    }else if(visitCtx.visited[ni][nj]>=0){
+                        parent[ni][nj]=[curr[0],curr[1]];
+                        await mark([ni, nj]);
+                        stack.unshift([ni, nj]);
+                    }
+                }
             }
         }
-        
     }
     executedfs();
 }
