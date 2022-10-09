@@ -1,5 +1,4 @@
 import './Header.css';
-import '../../bootstrap5/css/bootstrap.min.css';
 import AlgoOption from './AlgoOption';
 import Button from './Button';
 import { useState } from 'react';
@@ -9,7 +8,7 @@ import SpeedController from './SpeedController';
 
 const Header=()=>{
     const [selectedAlgo,setSelectedAlgo]=useState("none");
-    const [selectedSpeed,setSelectedSpeed]=useState(100);
+    const [selectedSpeed,setSelectedSpeed]=useState(500);
 
     const AlgorithmHander=(algorithm)=>{
         setSelectedAlgo(algorithm);
@@ -19,7 +18,7 @@ const Header=()=>{
     }
 
     return(
-        // <div className='header'>
+        <div className='header'>
             <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
                 <div class="nav-brand text-white"><h1> Visualizer </h1></div>
@@ -30,17 +29,16 @@ const Header=()=>{
     
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><div class="nav-link"><AlgoOption algo={selectedAlgo} algoHandler={AlgorithmHander}></AlgoOption></div></li>
-                    <li class="nav-item"><div class="nav-link"><SpeedController speed={selectedSpeed} speedHandler={SpeedHander}></SpeedController></div></li>
-                    <li class="nav-item"><div class="nav-link"><Button selectedAlgo={selectedAlgo} speed={selectedSpeed}></Button></div></li>
-                    <li class="nav-item"><div class="nav-link"><RandomGrid></RandomGrid></div></li>
-                    <li class="nav-item"><div class="nav-link"><ClearGrid></ClearGrid></div></li>
+                    <li><div class="nav-link"><AlgoOption algo={selectedAlgo} algoHandler={AlgorithmHander}></AlgoOption></div></li>
+                    <li><div class="nav-link"><SpeedController speed={selectedSpeed} speedHandler={SpeedHander}></SpeedController></div></li>
+                    <li><div class="nav-link"><Button selectedAlgo={selectedAlgo} speed={501 + (-1*selectedSpeed)}></Button></div></li>
+                    <li><div class="nav-link"><RandomGrid></RandomGrid></div></li>
+                    <li><div class="nav-link"><ClearGrid></ClearGrid></div></li>
                 </ul>
                 </div>
             </div>
             </nav>
-
-        // </div>
+        </div>
         /* <div class="heading">Visualizer</div> */
 
         /* <div class="links">
