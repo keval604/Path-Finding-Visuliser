@@ -32,7 +32,7 @@ const Header=()=>{
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><div class="nav-link"><AlgoOption algo={selectedAlgo} algoHandler={AlgorithmHander}></AlgoOption></div></li>
                     <li class="nav-item"><div class="nav-link"><SpeedController speed={selectedSpeed} speedHandler={SpeedHander}></SpeedController></div></li>
-                    <li class="nav-item"><div class="nav-link"><Button selectedAlgo={selectedAlgo} speed={selectedSpeed}></Button></div></li>
+                    <li class="nav-item"><div class="nav-link"><Button selectedAlgo={selectedAlgo} speed={501+(-1)*selectedSpeed}></Button></div></li>
                     <li class="nav-item"><div class="nav-link"><RandomGrid></RandomGrid></div></li>
                     <li class="nav-item"><div class="nav-link"><ClearGrid></ClearGrid></div></li>
                 </ul>
