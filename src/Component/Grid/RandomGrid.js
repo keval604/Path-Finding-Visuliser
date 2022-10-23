@@ -19,34 +19,31 @@ const RandomGrid = () => {
     // }
     // console.log(visitCtx.visited);
 
-    const generateRandomGrid=async()=>{
-        generateClearGrid();
-        const time=100;
+    async function generate(visitCtx) {
+        // const y= await console.log(visitCtx.weight);
         for(let i=0;i<noRows;i++){
             for(let j=0;j<noCols;j++){
                 let x=Math.random();
-                if((i===cor.start.x && j===cor.start.y) || (i===cor.end.x
-                    && j===cor.end.y)){
-                    setTimeout(() => {
-                        visitCtx.setVisited(i,j,-1);
-                    }, time);
-                } 
-                else if(x>0.7){
-                    setTimeout(() => {
-                        visitCtx.setVisited(i,j,-2);
-                    }, time);
-                } 
-                else if(x>0.3) {
-                    setTimeout(() => {
-                        visitCtx.setWeight(i,j,Math.floor(Math.random()*10));
-                    }, time);
-                } 
+                if ((i === cor.start.x && j === cor.start.y) || (i === cor.end.x
+                    && j === cor.end.y)) visitCtx.setVisited(i, j, -1);
+                else if (x > 0.7) visitCtx.setWeight(i, j, 1000000);
+                else if (x > 0.3) visitCtx.setWeight(i, j, Math.floor(Math.random() * 10)+1); //weighted
+                else visitCtx.setWeight(i, j, 1);
             }
         }
-        // generate(visitCtx);
+        // console.log(visitCtx.weight);
     }
+    // console.log(visitCtx.visited);
 
+    function generateRandomGrid() {
+        // console.log(visitCtx.weight);
+        generateClearGrid();
+        generate(visitCtx);
+        
+    }
+    // console.log(visitCtx.weight);
     return (
+
         <button class="btn btn-lg btn-primary px-4" onClick={generateRandomGrid}>Generate RandomGrid</button>
     );
 }
