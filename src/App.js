@@ -1,26 +1,27 @@
 import React, {useState } from "react";
 import Grid from "./Component/Grid/Grid";
 import Header from "./Component/Header/Header";
+import MapContainer from "./Component/Map/MapContainer";
 import Map from "./Component/Map/GoogleMap";
 import LeafletMap from "./Component/Map/Leaflet";
-// import Dijikstra from "./Component/Map/dijikstra";
-// import VisContext from "./Context/vis-context";
+import Dijikstra from "./Component/Map/dijikstra";
+import VisContext from "./Context/vis-context";
 
 const rows=20;
-  const cols=40;
+const cols=40;
 
-  let visArray = (new Array(rows)).fill().map(function(){ return new Array(cols).fill(0);});
-  let weightArray=[];
-  for (let i = 0; i < rows; i++) {
-      weightArray.push([]);
-      for (let j = 0; j < cols; j++) {
-        weightArray[i].push(1);
-      }
-  }
+let visArray = (new Array(rows)).fill().map(function(){ return new Array(cols).fill(0);});
+let weightArray=[];
+for (let i = 0; i < rows; i++) {
+    weightArray.push([]);
+    for (let j = 0; j < cols; j++) {
+      weightArray[i].push(1);
+    }
+}
 
 const initialCor={
-  start:{x:2,y:2},
-  end:{x:11,y:12}
+  start:{x:3,y:5},
+  end:{x:11,y:22}
 }
 
 
@@ -52,9 +53,10 @@ const App=()=>{
     setDown(curr);
   }
 
-  return(
+  return (
     <>
-      <VisitContext.Provider
+      
+      {/* <VisitContext.Provider
         value={{
           visited:vis,  //grid array
           setVisited:visitHandler,
@@ -64,7 +66,7 @@ const App=()=>{
           mouseHandler:mouseHandler,
           down:down
         }}
-      >
+      > */}
           
         <GridInfoContext.Provider value={{ cor: cor, noRows: { rows }, noCols: { cols } }}>
           {/* <Header /> */}
@@ -78,13 +80,12 @@ const App=()=>{
           {/* <MapContainer> </MapContainer> */}
           {/* <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=72.53963738679887%2C23.12889068334543%2C72.5426307320595%2C23.130469312503628&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=19/23.12968/72.54113">View Larger Map</a></small> */}
         </GridInfoContext.Provider>
-      </VisitContext.Provider>
-
-          <LeafletMap></LeafletMap>
-    </>
-  )
-
-}
+      {/* </VisitContext.Provider>  */}
+      {/* <MapContainer></MapContainer> */}
+        <LeafletMap></LeafletMap>
+      </>
+  );
+};
 
 export default App;
 export {VisitContext,GridInfoContext};

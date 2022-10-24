@@ -2,9 +2,6 @@ import { useContext } from "react";
 import { VisitContext,GridInfoContext } from "../App";
 
 export const dijkstra=(visitCtx,gridCtx,speed)=>{
-    // const visitCtx=useContext(VisitContext);
-    // const gridCtx=useContext(GridInfoContext);
-    // console.log("hello");
     const cor=gridCtx.cor; //terminal cordinate;
     const noRows=gridCtx.noRows.rows;       //total no of rows and cols;
     const noCols=gridCtx.noCols.cols;
@@ -46,10 +43,8 @@ export const dijkstra=(visitCtx,gridCtx,speed)=>{
 
     const karoPrint=()=>{
         let curr=parent[cor.end.x][cor.end.y];
-        // console.log("b");
 
         var timer=setInterval(()=>{
-            // console.log(curr);
             if(curr[0]==cor.start.x && curr[1]==cor.start.y){ 
                 visitCtx.setVisited(curr[0],curr[1],-1);
                 clearInterval(timer);

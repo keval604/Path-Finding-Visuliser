@@ -29,6 +29,7 @@ const Header=()=>{
     
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
                     <li><div class="nav-link"><AlgoOption algo={selectedAlgo} algoHandler={AlgorithmHander}></AlgoOption></div></li>
                     <li><div class="nav-link"><SpeedController speed={selectedSpeed} speedHandler={SpeedHander}></SpeedController></div></li>
                     <li><div class="nav-link"><Button selectedAlgo={selectedAlgo} speed={501 + (-1*selectedSpeed)}></Button></div></li>

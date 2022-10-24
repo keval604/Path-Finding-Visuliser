@@ -5,14 +5,15 @@ import './Cell.css';
 
 
 const Cell = (props) => {
+
     const ctx=useContext(VisitContext);
 
-    let isTerminal="";
+    let isTerminal = "";
     let row = props.rowNo, col = props.colNo;
 
-    if((ctx.cor.start.x===row && ctx.cor.start.y===col) || 
-        (ctx.cor.end.x===row && ctx.cor.end.y===col )){
-        isTerminal="terminal"
+    if ((ctx.cor.start.x === row && ctx.cor.start.y === col) ||
+        (ctx.cor.end.x === row && ctx.cor.end.y === col)) {
+        isTerminal = "terminal"
     }
 
     let color='';
@@ -44,7 +45,7 @@ const Cell = (props) => {
                     else 
                     ctx.setVisited(row,col,0);
                 })}
-                
+
                 style={{
                     backgroundColor: color,
                 }}

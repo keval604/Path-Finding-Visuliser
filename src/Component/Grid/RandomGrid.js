@@ -9,6 +9,15 @@ const RandomGrid = () => {
     const noRows=gridCtx.noRows.rows;
     const noCols=gridCtx.noCols.cols;
     const cor=gridCtx.cor;
+    
+    // function generate(setVisited,i,j,val){
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             setVisited(i,j,val);
+    //         }, time);
+    //     });
+    // }
+    // console.log(visitCtx.visited);
 
     async function generate(visitCtx) {
         // const y= await console.log(visitCtx.weight);
