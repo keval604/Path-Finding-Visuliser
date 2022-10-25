@@ -2,11 +2,27 @@ import './map.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useMapEvents } from 'react-leaflet/hooks'
 import { useState } from 'react';
+import L  from 'leaflet';
 
 // const qop = require("query-overpass");
 const qop = require('@derhuerst/query-overpass');
 const start = "5233360151";
 const end = "5233389505";
+
+const sourceIcon = new L.Icon({
+   iconUrl: require("../../Images/sourceIcon.png"),
+   iconSize: [40, 40],
+   iconAnchor: [17, 45],
+   popupAnchor: [3,-46]
+});
+
+const destIcon = new L.Icon({
+   iconUrl: require("../../Images/destIcon.png"),
+   iconSize: [40, 40],
+   iconAnchor: [17, 45],
+   popupAnchor: [3,-46]
+});
+
 
 const getCoordinate = async (nodeId) => {
    const y = qop(`node(${nodeId});out geom;`, (data, x) => {
@@ -27,15 +43,14 @@ function EndNode(props) {
             setCordinate([e.latlng.lat, e.latlng.lng]);
             setIsMove(false);
          }
-         
     }
    })
    // draggable={true} 
-   return <Marker position={cordinate} eventHandlers={{
+   return <Marker position={cordinate} icon = {props.icon} eventHandlers={{
       click: (e) => {
          setIsMove(true);
-         console.log('marker clicked', e.latlng);
-      },
+         console.log('marker clicked', e);
+      },    
     }}></Marker>;
 }
 
@@ -46,8 +61,8 @@ const Map = () => {
          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
          />
-         <EndNode lat = "23.1295773" lng = "72.541998" />
-         <EndNode lat="23.1296306" lng="72.5439978"/>
+         <EndNode lat="23.1295773" lng="72.541998" icon={destIcon} />
+         <EndNode lat="23.1296306" lng="72.5439978" icon ={sourceIcon} />
       </MapContainer>
    ); 
 }
