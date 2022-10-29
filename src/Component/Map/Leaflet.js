@@ -50,8 +50,13 @@ const LeafletMap = () => {
    // const destinationCordinate = [23.1296306, 72.5439978]; 
    const limeOptions = { color: 'lime' };
    const LineArrayHandler = (cords) => {
-      let newLines = [...multiPolyline,cords];
-      setMultiPolyLine(newLines);
+      console.log("line Handlr",multiPolyline);
+      // let newLines = [...multiPolyline,cords];
+      // console.log("inside lineARray Handler",multiPolyline);
+      // console.log("newlines",newLines);
+      setMultiPolyLine((oldArray)=>{
+         return [...oldArray,cords];
+      });
    };
    
    return (

@@ -1,10 +1,10 @@
 import React, {useState } from "react";
 import Grid from "./Component/Grid/Grid";
 import Header from "./Component/Header/Header";
-import MapContainer from "./Component/Map/MapContainer";
+// import MapContainer from "./Component/Map/MapContainer";
 import Map from "./Component/Map/GoogleMap";
 import LeafletMap from "./Component/Map/Leaflet";
-import Dijikstra from "./Component/Map/dijikstra";
+// import Dijikstra from "./Component/Map/dijikstra";
 import VisContext from "./Context/vis-context";
 
 const rows=20;
@@ -56,7 +56,7 @@ const App=()=>{
   return (
     <>
       
-      {/* <VisitContext.Provider
+      <VisitContext.Provider
         value={{
           visited:vis,  //grid array
           setVisited:visitHandler,
@@ -66,26 +66,23 @@ const App=()=>{
           mouseHandler:mouseHandler,
           down:down
         }}
-      > */}
+      >
           
         <GridInfoContext.Provider value={{ cor: cor, noRows: { rows }, noCols: { cols } }}>
-          {/* <Header /> */}
+          <Header />
           
-          {/* <Map></Map> */}
+     
           
-          {/* <Grid noRows={rows} noCols={cols} /> */}
+          <Grid noRows={rows} noCols={cols} />
 
-          {/* <MapContainer></MapContainer> */}
-          {/* <Dijikstra></Dijikstra> */}
-          {/* <MapContainer> </MapContainer> */}
-          {/* <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=72.53963738679887%2C23.12889068334543%2C72.5426307320595%2C23.130469312503628&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=19/23.12968/72.54113">View Larger Map</a></small> */}
         </GridInfoContext.Provider>
-      {/* </VisitContext.Provider>  */}
+      </VisitContext.Provider> 
       {/* <MapContainer></MapContainer> */}
-        <LeafletMap></LeafletMap>
+        {/* <LeafletMap></LeafletMap> */}
       </>
   );
 };
 
+{/* <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=72.53963738679887%2C23.12889068334543%2C72.5426307320595%2C23.130469312503628&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=19/23.12968/72.54113">View Larger Map</a></small> */}
 export default App;
 export {VisitContext,GridInfoContext};
