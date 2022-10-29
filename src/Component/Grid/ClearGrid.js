@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { GridInfoContext, VisitContext } from "../../App";
+import { GridInfoContext, VisitContext } from '../Grid/GridContainer';
 
 let generateClearGrid;
 

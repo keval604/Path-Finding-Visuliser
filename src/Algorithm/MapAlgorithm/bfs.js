@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { MapContext } from "../../Component/Map/Leaflet";
 import { getWays,getCoordinate } from "./queryFunctions";
 
 const qop = require('@derhuerst/query-overpass');
 
-export const bfs =  (mapCtx) => {
+export const mapBFS =  (mapCtx) => {
+    console.log("yolo");
     const sourceId = 5233397151;
     const destinationId = 5204890049;//5233397149  5204890047
 

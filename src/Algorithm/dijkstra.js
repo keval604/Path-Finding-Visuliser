@@ -56,7 +56,7 @@ export const dijkstra=(visitCtx,gridCtx,speed)=>{
     }
 
     const executeDijkstra=async()=>{
-        
+        // console.log("idhar");
         dis[cor.start.x][cor.start.y]=0;
 
         while(true){

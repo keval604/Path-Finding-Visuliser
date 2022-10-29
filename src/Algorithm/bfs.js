@@ -49,7 +49,7 @@ export const bfs=(visitCtx,gridCtx,speed)=>{
 
                             reject(true);
                             return;
-                        }else if(visitCtx.visited[ni][nj]>=0){
+                        }else if(visitCtx.weight[ni][nj] !== 1000000 && visitCtx.visited[ni][nj]>=0){
                             parent[ni][nj]=[curr[0],curr[1]];
                             queue.push([ni,nj]);
                             visitCtx.setVisited(ni,nj,-3);                            

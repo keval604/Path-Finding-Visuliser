@@ -1,11 +1,8 @@
-import { useContext } from "react";
-import { MapContext } from "../../Component/Map/Leaflet";
-
 import { getWays,getCoordinate } from "./queryFunctions";
 
-export const dijkstra =  (mapCtx) => {
+export const mapDijkstra =  (mapCtx) => {
    const sourceId = 5233397151;
-   const destinationId = 8386270556;
+   const destinationId = 5204890049;
 
    let visited=new Array();
    let distance =new Array(); 
