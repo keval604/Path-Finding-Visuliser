@@ -4,7 +4,7 @@ import GridContainer from "./Component/Grid/GridContainer";
 import LeafletMap from "./Component/Map/Leaflet";
 
 const App=()=>{ 
-  const [containerType,setContainerType]=useState("grid");
+  const [containerType,setContainerType]=useState("map");
 
   const containerTypeHandler=(container)=>{
     setContainerType(container);
