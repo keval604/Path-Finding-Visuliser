@@ -6,7 +6,7 @@ import './Cell.css';
 
 const Cell = (props) => {
 
-    const ctx=useContext(VisitContext);
+    const ctx = useContext(VisitContext);
 
     let isTerminal = "";
     let row = props.rowNo, col = props.colNo;
@@ -19,11 +19,11 @@ const Cell = (props) => {
     let color='';
     let colorArray=["#c6f7f1","#b6fcf3","#9bfaed","#81fcec","#54ebd7","#48dbc8","#2eab9a","#09695d","#09695e","#09695e"];
     let vis="";
-    if(ctx.visited[row][col]===-3){ //visited 
+    if(ctx.visited[row][col]=== -3){ //visited 
         color="yellow";
         vis="anime";
     }
-    else if (ctx.weight[row][col] === 1000000)
+    else if (ctx.visited[row][col] === -2)
         color = "#1f0914";  //block
     else if (ctx.visited[row][col] === -1)
         color = "selmon"; //end point
@@ -39,11 +39,14 @@ const Cell = (props) => {
                 onMouseDown={()=>ctx.mouseHandler(true)}
                 onMouseUp={()=>ctx.mouseHandler(false)}
                 onMouseOver={()=>ctx.down?ctx.setVisited(row,col,-2):ctx.down}
-                onClick={(() =>{ 
-                    if(ctx.visited[row][col] == 0)
-                    ctx.setVisited(row, col, -2);
-                    else 
-                    ctx.setVisited(row,col,0);
+                onClick={(() => { 
+                    if (ctx.visited[row][col] == 0) {
+                        console.log("clicked");
+                        ctx.setVisited(row, col, -2);
+                    }
+                    else {
+                        ctx.setVisited(row,col,0);
+                    }
                 })}
 
                 style={{

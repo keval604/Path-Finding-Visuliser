@@ -11,7 +11,6 @@ const GridButton = (props)=>{
     const visitCtx=useContext(VisitContext);
     const gridCtx=useContext(GridInfoContext);
     let algorithm=props.selectedAlgo === "none"?'':props.selectedAlgo;
-    
     let speed=props.speed;
     let cor=gridCtx.cor,noRows=gridCtx.noRows.rows,noCols=gridCtx.noCols.cols;
 
@@ -27,7 +26,7 @@ const GridButton = (props)=>{
     }
 
     function execute(){
-        console.log("hi");
+        // console.log("hi");
         clearVisited();
             switch(algorithm){
                 case 'none':

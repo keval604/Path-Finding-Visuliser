@@ -20,7 +20,10 @@ export const dijkstra=(visitCtx,gridCtx,speed)=>{
             return curr.x>=0 && curr.y>=0 && curr.x<noRows && curr.y<noCols;
     }
 
-    const findMinVertex=()=>{
+    const findMinVertex = () => {
+        const sp = visitCtx.speed;
+        // console.log(visitCtx);
+        console.log(sp);
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 let minDis=Number.MAX_SAFE_INTEGER,minVer=null;
@@ -36,7 +39,7 @@ export const dijkstra=(visitCtx,gridCtx,speed)=>{
                 }
                 // console.log(minVer);
                 resolve(minVer);
-            },speed);
+            },sp);
         });
         
     }

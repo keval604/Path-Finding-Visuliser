@@ -22,7 +22,6 @@ export const mapDijkstra =  (mapCtx) => {
             }
          }
       }
-   
       return minVertex;
    }
    
@@ -41,10 +40,9 @@ export const mapDijkstra =  (mapCtx) => {
          
          let cord=await getCoordinate(u);
          if(parent[u]){
-            mapCtx.setLineArray([cord,parent[u]]);
-            
+            mapCtx.setLineArray([cord,parent[u]]); 
          }
-         if(parseInt(u) == destinationId) return;
+         if(parseInt(u) === destinationId) return;
 
          visited[u]=true;
          const y = await getWays(u);

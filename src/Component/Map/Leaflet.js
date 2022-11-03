@@ -33,13 +33,7 @@ const MapContext = React.createContext();
 const LeafletMap = (props) => {
    const [source, setSource] = useState([23.1295773, 72.541998]);
    const [destination, setDestination] = useState([23.1296306, 72.5439978]);
-   const [multiPolyline, setMultiPolyLine] = useState([
-      [
-         source,
-         destination
-      ],
-      // []
-   ]);
+   const [multiPolyline, setMultiPolyLine] = useState([]);
    // const destinationCordinate = [23.1296306, 72.5439978]; 
    const limeOptions = { color: 'lime' };
    const LineArrayHandler = (cords) => {
@@ -70,7 +64,7 @@ const LeafletMap = (props) => {
                   },
                   dragend: (e) => {
                      let cord = e.target._latlng;
-                     // console.log('source dragged', cord);               // let cord=e.cord.lat,cordoncord._latlng
+                     console.log('source dragged', cord);               // let cord=e.cord.lat,cordoncord._latlng
                      setSource([cord.lat, cord.lng]);
                      // setMultiPolyLine([
                      //    [
@@ -90,7 +84,7 @@ const LeafletMap = (props) => {
                   },
                   dragend: (e) => {
                      let cord = e.target._latlng;
-                     // console.log('destination dragged', cord);
+                     console.log('destination dragged', cord);
                      setDestination([cord.lat, cord.lng]);
                      // setMultiPolyLine([
                      //    [

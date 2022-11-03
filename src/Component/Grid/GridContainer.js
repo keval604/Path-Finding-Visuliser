@@ -26,13 +26,15 @@ const GridContainer = (props)=>{
 
     const [vis,setVis]=useState(visArray);
     const [weight,setWeight]=useState(weightArray);
-    const [down,setDown]=useState(false);
+    const [down, setDown] = useState(false);
+    const[speed, setSpeed] = useState(1);
     
     const [cor,setCor]=useState(initialCor);
     
     const visitHandler=(row,col,value)=>{
         let newArray=[...vis];
         newArray[row][col]=value;
+        // console.log(newArray);
         setVis(newArray);
     }
 
@@ -46,6 +48,10 @@ const GridContainer = (props)=>{
         setDown(curr);
     }
 
+    const SpeedHandler = (val) => {
+        setSpeed(val);
+    }
+
 
     return (
       <>
@@ -57,12 +63,14 @@ const GridContainer = (props)=>{
             setWeight:weightHandler,
             cor:cor,
             mouseHandler:mouseHandler,
-            down:down
+            down: down,
+            speed: speed,
+            setSpeed:SpeedHandler
             }}
         >
             
-            <GridInfoContext.Provider value={{ cor: cor, noRows: { rows }, noCols: { cols } }}>
-                <Header typeHandler={props.typeHandler} type="grid"/>
+                <GridInfoContext.Provider value={{ cor: cor, noRows: { rows }, noCols: { cols } }}>
+                <Header typeHandler={props.typeHandler} type="grid" speed={speed}/>
                 <Grid noRows={rows} noCols={cols} />
             </GridInfoContext.Provider>
         </VisitContext.Provider> 
