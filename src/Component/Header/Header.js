@@ -37,7 +37,7 @@ const Header=(props)=>{
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li><div class="nav-link"><AlgoOption selection={props.type} handler={props.typeHandler} optionType="container"></AlgoOption></div></li>
                     <li><div class="nav-link"><AlgoOption selection={selectedAlgo} handler={AlgorithmHandler} optionType="algorithm"></AlgoOption></div></li>
-                            <h3>{ props.speed}</h3>
+                            {/* <h3>{ props.speed}</h3> */}
                     {props.type=="grid" &&
                         <>
                             <li><div class="nav-link"><GridButton selectedAlgo={selectedAlgo}  ></GridButton></div></li>

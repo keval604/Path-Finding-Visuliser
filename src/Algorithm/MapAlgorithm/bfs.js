@@ -5,11 +5,11 @@ const qop = require('@derhuerst/query-overpass');
 
 export const mapBFS =  (mapCtx) => {
     console.log("yolo");
-    const sourceId = 5233397151;
-    const destinationId = 5204890049;//5233397149  5204890047
+    const sourceId = 5233390625;
+    const destinationId = 5204890047;//5233397149  5204890047
 
-    let visited=new Array();
-    let queue=new Array();
+    let visited = new Array();
+    let queue= new Array();
 
     const executeBFS=async()=>{
         visited[sourceId]=true;

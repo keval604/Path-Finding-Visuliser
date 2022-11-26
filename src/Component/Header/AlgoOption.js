@@ -9,7 +9,7 @@ const AlgoOption = (props) => {
     }
     return (
         <select class= "form-select form-select-lg" ref={selectRef} onChange={changeAlgo} >
-            {   props.optionType!="container" &&
+            {   props.optionType != "container" &&
                 <>
                     <option value="none">Algorithm</option>
                     <option value="dijkstra">Dijkstra</option>

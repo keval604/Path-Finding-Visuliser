@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { MapContext } from "./Leaflet";
 import { mapBFS } from "../../Algorithm/MapAlgorithm/bfs";
 import { mapDijkstra } from "../../Algorithm/MapAlgorithm/dijkstra";
+import { mapAstar } from "../../Algorithm/MapAlgorithm/MapAstar";
 
 const MapButton = (props)=>{
     const mapCtx = useContext(MapContext);
@@ -21,9 +22,9 @@ const MapButton = (props)=>{
             // case 'DFS':
             //     dfs(mapCtx);
             //     break;
-            // case 'A*':
-            //     astar(mapCtx);
-            //     break;
+            case 'A*':
+                mapAstar(mapCtx);
+                break;
             default:
                 break;
         }
