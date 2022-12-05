@@ -1,16 +1,15 @@
 import { useContext } from "react";
-import { VisitContext,GridInfoContext } from "../../App";
-import '../../bootstrap5/css/bootstrap.min.css';
+import { VisitContext,GridInfoContext } from "./GridContainer";
 import { dijkstra } from "../../Algorithm/dijkstra";
 
 import {bfs} from "../../Algorithm/bfs";
 import {dfs} from "../../Algorithm/dfs";
 import {astar} from "../../Algorithm/astar";
 
-const Button=(props)=>{
+const GridButton = (props)=>{
+   
     const visitCtx=useContext(VisitContext);
     const gridCtx=useContext(GridInfoContext);
-
     let algorithm=props.selectedAlgo === "none"?'':props.selectedAlgo;
     let speed=props.speed;
     let cor=gridCtx.cor,noRows=gridCtx.noRows.rows,noCols=gridCtx.noCols.cols;
@@ -21,38 +20,38 @@ const Button=(props)=>{
                 if(visitCtx.visited[i][j]< -2)
                     visitCtx.setVisited(i,j,0);
         }
-        // console.log("cleared");
+            // console.log("cleared");
         visitCtx.setVisited(cor.start.x,cor.start.y,-1);
         visitCtx.setVisited(cor.end.x,cor.end.y,-1);
     }
 
-
     function execute(){
+        // console.log("hi");
         clearVisited();
-        switch(algorithm){
-            case 'none':
-                alert("algorithm select karle pahle");
-                break;
-            case 'dijkstra':
-                dijkstra(visitCtx,gridCtx,speed);
-                break;
-            case 'BFS':
-                bfs(visitCtx,gridCtx,speed);
-                break;
-            case 'DFS':
-                dfs(visitCtx,gridCtx,speed);
-                break;
-            case 'A*':
-                astar(visitCtx,gridCtx,speed);
-                break;
-            default:
-                break;
-        }
+            switch(algorithm){
+                case 'none':
+                    // alert("algorithm select karle pahle");
+                    break;
+                case 'dijkstra':
+                    dijkstra(visitCtx,gridCtx,speed);
+                    break;
+                case 'BFS':
+                    bfs(visitCtx,gridCtx,speed);
+                    break;
+                case 'DFS':
+                    dfs(visitCtx,gridCtx,speed);
+                    break;
+                case 'A*':
+                    astar(visitCtx,gridCtx,speed);
+                    break;
+                default:
+                    break;
+            }
     }
-    
+
     return (
         <button class="btn btn-lg btn-primary px-4" onClick={execute}>Visualize {algorithm}</button>
     );
-}
+};
 
-export default Button;  
+export default GridButton;

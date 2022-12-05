@@ -26,11 +26,11 @@ export const astar = (visitCtx, gridCtx, speed) => {
                     for (let j = 0; j < noCols; j++){
                         if (visitCtx.visited[i][j] >= -1) {
                             // const huristicDistace = dis[i][j] + Math.sqrt(Math.pow(cor.end.x - i, 2) + Math.pow(cor.end.y - j,2));
-                            const huristicDistace = dis[i][j] + Math.abs(cor.end.x - i) + Math.abs(cor.end.y - j);
+                            const huristicDistace = dis[i][j] + (Math.abs(cor.end.x - i) + Math.abs(cor.end.y - j)*2);
                             // const huristicDistace = dis[i][j] + (cor.end.x - i ) + (cor.end.y - j);
                             if (huristicDistace < minDis) {
                                 minDis=huristicDistace;
-                                minVer={x:i,y:j};
+                                minVer={x:i, y:j};
                             }
                         }
                     }   
@@ -46,7 +46,8 @@ export const astar = (visitCtx, gridCtx, speed) => {
 
         var timer=setInterval(()=>{
             // console.log(curr);
-            if(curr[0]==cor.start.x && curr[1]==cor.start.y){ 
+            if (curr[0] == cor.start.x && curr[1] == cor.start.y) { 
+                console.log("inside if condition", curr);
                 visitCtx.setVisited(curr[0],curr[1],-1);
                 clearInterval(timer);
                 return;
@@ -54,10 +55,11 @@ export const astar = (visitCtx, gridCtx, speed) => {
             visitCtx.setVisited(curr[0],curr[1],-4);
             curr=parent[curr[0]][curr[1]];
         }, speed);
+        // visitCtx.setVisited(cor.start.x, cor.start.y, -1);
     }
 
     const executeAstar=async()=>{
-        dis[cor.start.x][cor.start.y]=0;
+        dis[cor.start.x][cor.start.y] = 0;
 
         while (true) {
 
@@ -66,23 +68,21 @@ export const astar = (visitCtx, gridCtx, speed) => {
                 return;
             }
             
-            
+            // if(u.x !== cor.start.x && u.y !== cor.start.y) 
             visitCtx.setVisited(u.x, u.y, -3); //visited
 
             let dir = [[-1, 0], [0, -1], [1, 0], [0, 1]];
-                    
                 
             for (let i = 0; i < dir.length; i++) {
                 let ele = dir[i];
                 let newCorr = { x: ele[0] + u.x, y: u.y + ele[1] };
-                            
+
                 if (isInRange(newCorr) && visitCtx.visited[newCorr.x][newCorr.y] >= -1 &&
                     (dis[u.x][u.y] + visitCtx.weight[newCorr.x][newCorr.y]) < dis[newCorr.x][newCorr.y]) {
                     parent[newCorr.x][newCorr.y] = [u.x, u.y];
                     dis[newCorr.x][newCorr.y] = dis[u.x][u.y] + visitCtx.weight[newCorr.x][newCorr.y];
-                
                     if (newCorr.x === cor.end.x && newCorr.y === cor.end.y) {
-                        visitCtx.setVisited(cor.start.x, cor.start.y, -1);
+                        // visitCtx.setVisited(cor.start.x, cor.start.y, -1);
                         printPath();
                         return;
                     }

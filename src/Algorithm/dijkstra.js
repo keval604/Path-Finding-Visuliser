@@ -2,9 +2,6 @@ import { useContext } from "react";
 import { VisitContext,GridInfoContext } from "../App";
 
 export const dijkstra=(visitCtx,gridCtx,speed)=>{
-    // const visitCtx=useContext(VisitContext);
-    // const gridCtx=useContext(GridInfoContext);
-    // console.log("hello");
     const cor=gridCtx.cor; //terminal cordinate;
     const noRows=gridCtx.noRows.rows;       //total no of rows and cols;
     const noCols=gridCtx.noCols.cols;
@@ -23,7 +20,10 @@ export const dijkstra=(visitCtx,gridCtx,speed)=>{
             return curr.x>=0 && curr.y>=0 && curr.x<noRows && curr.y<noCols;
     }
 
-    const findMinVertex=()=>{
+    const findMinVertex = () => {
+        const sp = visitCtx.speed;
+        // console.log(visitCtx);
+        console.log(sp);
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 let minDis=Number.MAX_SAFE_INTEGER,minVer=null;
@@ -39,17 +39,15 @@ export const dijkstra=(visitCtx,gridCtx,speed)=>{
                 }
                 // console.log(minVer);
                 resolve(minVer);
-            },speed);
+            },sp);
         });
         
     }
 
     const karoPrint=()=>{
         let curr=parent[cor.end.x][cor.end.y];
-        // console.log("b");
 
         var timer=setInterval(()=>{
-            // console.log(curr);
             if(curr[0]==cor.start.x && curr[1]==cor.start.y){ 
                 visitCtx.setVisited(curr[0],curr[1],-1);
                 clearInterval(timer);
@@ -61,7 +59,7 @@ export const dijkstra=(visitCtx,gridCtx,speed)=>{
     }
 
     const executeDijkstra=async()=>{
-        
+        // console.log("idhar");
         dis[cor.start.x][cor.start.y]=0;
 
         while(true){
